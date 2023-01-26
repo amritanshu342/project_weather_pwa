@@ -1,5 +1,5 @@
 const CACHE_NAME = "version-1";
-const urlsToCache = [ 'index.html', 'offline.html' ];
+const urlsToCache = [ 'index.html', 'offline.html','images/bg.jpg' ];
 
 const self = this;
 
@@ -22,6 +22,7 @@ self.addEventListener('fetch', (event) => {
             .then(() => {
                 return fetch(event.request) 
                     .catch(() => caches.match('offline.html'))
+                    // .catch(() => caches.match('images/bg.jpg'))
             })
     )
 });
